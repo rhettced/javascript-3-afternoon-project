@@ -51,7 +51,19 @@ var employees = [
 */
 
 //Code Here
-
+function employeeUpdater(){
+  employees.forEach((el,ind,arr) => {
+    console.log(el.firstName);
+    if(el.firstName ==='Theo') {
+      arr.splice(ind,1);
+    }
+    if(el.firstName === 'Lorie'){
+      el.department = 'HR';
+    }
+     
+  });
+  return employees;
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -69,6 +81,22 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
+function removeDuplicates(){
+  let newArr = [];
+  for(let i=0; i<workplaceAccidents.length; i++){
+    
+      if(!newArr.includes(workplaceAccidents[i])){
+        newArr.push(workplaceAccidents[i])
+        
+      } else {
+        //newArr.push(workplaceAccidents[i]);
+      }
+      console.log(newArr);
+  
+  }
+  return newArr;
+}
+
 
 
 
@@ -97,8 +125,12 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+//var grumpyActivity
+//var fluffy2ndFriend;
+
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
+
 
 
 
@@ -139,7 +171,23 @@ var myCar = {
 */
 
 //Code Here
-
+function recordCleaner(Obj){
+  for (let key in myCar){
+    console.log(key);
+    if(key === 'accidents'){
+      console.log('sweet');
+      myCar.accidents.forEach((el,ind,arr) => {
+        console.log(el.atFaultForAccident);
+        if(el.atFaultForAccident = true){
+          el.atFaultForAccident = false;
+        }
+        console.log(el);
+      });
+    }
+  }
+}
+//loop through and array not an object
+recordCleaner(myCar);
 
 
 ////////// PROBLEM 5 //////////
@@ -158,5 +206,22 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+function looper(arr){
+  numsArr.forEach((el,ind,arr) => {
+    //console.log(el, ind, 'el' );
+    el.forEach((el2,ind2,arr2) =>{
+      //console.log(el2, ind2, 'el2');
+      if(el2 % 2 === 0){
+        el[ind2] = 'even';
+      
+      } else{
+        el[ind2] = 'odd';
+    
+      }
+    });
+    
+});
+return numsArr;
+}
 
-
+//looper(numsArr);
